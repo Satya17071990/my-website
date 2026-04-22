@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Dr. Satya Kumar Dewangan | Portfolio & CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #eef2f5;
+            color: #1e2a3e;
+            line-height: 1.5;
+        }
+
+        /* header & footer */
+        header {
+            background: linear-gradient(135deg, #0b2b3b, #1a4a5f);
+            color: white;
+            padding: 2rem 1.5rem 1.8rem;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* navigation tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background: white;
+            border-bottom: 1px solid #cbd5e1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 1rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5a6e;
+            transition: 0.2s;
+            border-bottom: 3px solid transparent;
+            font-family: inherit;
+        }
+
+        .tab-btn:hover {
+            background: #e6f0f3;
+            color: #0f3b48;
+        }
+
+        .tab-btn.active {
+            color: #1a6d7f;
+            border-bottom-color: #1a6d7f;
+            background: #f0f9fc;
+        }
+
+        /* container & pages */
+        .pages-container {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        .page.active-page {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* card style */
+        .card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.07);
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2edf2;
+        }
+
+        .profile-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .profile-img {
+            flex-shrink: 0;
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 15px 25px -12px rgba(0,0,0,0.2);
+            background: #f0f4f8;
+        }
+
+        .profile-text {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            border-left: 6px solid #1a6d7f;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: #0f3b48;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.2rem 0 0.5rem 0;
+            color: #1f5e6e;
+        }
+
+        ul, .contact-list {
+            list-style: none;
+            padding-left: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #1a6d7f;
+            font-weight: bold;
+        }
+
+        a {
+            color: #1f7f8c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #0b4b5a;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .two-columns > div {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 0.5rem;
+        }
+
+        .skill-badge {
+            background: #e4f0f3;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1a5e6e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #0f2d38;
+            color: #bcd4dd;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: #d4e2e8;
+        }
+
+        @media (max-width: 720px) {
+            .tab-btn {
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            header h1 {
+                font-size: 1.6rem;
+            }
+        }
+
+        button {
+            background: none;
+        }
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .gallery-img {
+            max-width: 280px;
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+            border: 2px solid white;
+            transition: transform 0.2s;
+        }
+        .gallery-img:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dr. Satya Kumar Dewangan</h1>
+    <p>IIT Kharagpur | Artificial Intelligence for NDT · Advanced Manufacturing · Welding Technology</p>
+</header>
+
+<!-- multi-page navigation -->
+<div class="nav-tabs">
+    <button class="tab-btn active" data-page="profile">📄 Profile & Contact</button>
+    <button class="tab-btn" data-page="experience">💼 Experience & Skills</button>
+    <button class="tab-btn" data-page="publications">📚 Publications & Patents</button>
+    <button class="tab-btn" data-page="gallery">🖼️ Gallery & Media</button>
+</div>
+
+<div class="pages-container">
+    <!-- PAGE 1: PROFILE + CONTACT + EDUCATION -->
+    <div id="profile" class="page active-page">
+        <div class="card">
+            <div class="profile-summary">
+                <!-- profile image placeholder (Satya3.jpg) -->
+                <img src="Satya3.jpg" 
+                     alt="Dr. Satya" class="profile-img" id="profileImg">
+                <div class="profile-text">
+                    <h2 style="color:#1f5e6e;">Research Scientist & Postdoctoral Researcher</h2>
+                    <p>Worked on Welding Technology, Composite Material, Additive Manufacturing and Artificial Intelligence for Defect Detection. Experienced in friction stir welding, finite element simulation, and deep learning-based NDT systems.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="two-columns">
+            <div class="card">
+                <h2 class="section-title">📞 Contact</h2>
+                <div class="contact-grid">
+                    <p>📧 <a href="mailto:satya17071990@gmail.com">satya17071990@gmail.com</a></p>
+                    <p>📞 +91 9907993973</p>
+                    <p>🔗 <a href="#" target="_blank">https://www.linkedin.com/in/dr-satya-kumar-dewangan-93767498/</a></p>
+                    <p>💻 <a href="#" target="_blank">github.com/Satya17071990</a></p>
+                </div>
+                <hr>
+                <h2 class="section-title" style="margin-top: 0.5rem;">🎓 Education</h2>
+                <ul>
+                    <li><strong>PhD Metallurgical and Materials Engineering</strong>, NIT Raipur (2017-2023)</li>
+                    <li><strong>M.Tech Mechanical Engineering (Production)</strong>, CSVTU Bhilai (2012-2015)</li>
+                    <li><strong>B.E. Mechanical Engineering</strong>, CSVTU Bhilai (2007-2011)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2 class="section-title">🏅 Key Expertise</h2>
+                <div class="badge-list">
+                    <span class="skill-badge">AI / CNN Defect Detection</span>
+                    <span class="skill-badge">Friction Stir Welding</span>
+                    <span class="skill-badge">Additive Manufacturing</span>
+                    <span class="skill-badge">Material Characterization</span>
+                    <span class="skill-badge">Python / Julia</span>
+                    <span class="skill-badge">Abaqus Simulation</span>
+                    <span class="skill-badge">HTML/CSS</span>
+                    <span class="skill-badge">NDT 4.0</span>
+                </div>
+                <hr>
+                <h2 class="section-title" style="margin-top: 0.5rem;">📖 Research Interest</h2>
+                <p>Welding metallurgy, AI-powered defect classification, dissimilar materials joining, computational mechanics, and sustainable manufacturing processes.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: EXPERIENCE & SKILLS DETAIL -->
+    <div id="experience" class="page">
+        <div class="card">
+            <h2 class="section-title">💼 Professional Experience</h2>
+            <h3>🔹 Institute Postdoctoral Fellowship - IIT Kharagpur (2026–Present)</h3>
+            <ul>
+                <li>Artificial Intelligence for Defect Detection using CNN and Image processing.</li>
+                <li>Developed AI defect detection model and automated control metal deposition of WAAM (Bhilai Steel Plant).</li>
+                
+            </ul>
+            <h3>🔹 Post Doctoral Researcher - Testia (Airbus company) (2024–2025)</h3>
+            <ul>
+                <li>Artificial Intelligence for Defect Detection in aviation NDT.</li>
+                <li>Collaborating with NDT teams to identify critical defects using deep learning models.</li>
+                <li>Develop automated inspection pipelines for ultrasonic & thermography data.</li>
+            </ul>
+            <h3>🔹 Project Associate - IIT Bhilai (2023–2024)</h3>
+            <ul>
+                <li>Artificial Intelligence for Defect Detection using CNN architectures.</li>
+                <li>Developed defect detection model for continuous casting billet (Bhilai Steel Plant).</li>
+                <li>Improved detection accuracy by integrating image processing & transfer learning.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2 class="section-title">⚙️ Technical Skills & Tools</h2>
+            <div class="badge-list" style="margin-bottom: 1rem;">
+                <span class="skill-badge">Python (TensorFlow, PyTorch)</span>
+                <span class="skill-badge">Julia</span>
+                <span class="skill-badge">Abaqus FEA</span>
+                <span class="skill-badge">SEM/EDS</span>
+                <span class="skill-badge">ImageJ</span>
+                <span class="skill-badge">Data Visualization</span>
+                <span class="skill-badge">Machine Learning</span>
+                <span class="skill-badge">Friction Stir Welding</span>
+            </div>
+            <h3>🏭 Industry Collaboration</h3>
+            <p>Experience with NDT 4.0, and steel plant manufacturing analytics. Strong background in dissimilar alloy joining, interlayer techniques, and corrosion analysis.</p>
+        </div>
+    </div>
+
+    <!-- PAGE 3: PUBLICATIONS, PATENTS, BOOK CHAPTERS -->
+    <div id="publications" class="page">
+        <div class="card">
+            <h2 class="section-title">📜 Patents</h2>
+            <ul>
+                <li><strong>Centrifugal casting device in induction furnace</strong>, Design, 2024, Design no. 420163-001</li>
+                <li><strong>A system and method for classification and location defects in bloom/billet manufacturing through continuous casting</strong>, Process, 2024, Application no. 202521000817</li>
+                <li><strong>Real time electrode material optimisation in rechargeable batteries using density functional theory integrated modelling</strong>, Design, 2024, Design no. 492140-001</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2 class="section-title">📄 Peer-Reviewed Research Papers</h2>
+            <div style="max-height: 380px; overflow-y: auto; padding-right: 8px;">
+                <ul>
+                    <li>Material Flow Behavior and Mechanical Properties of Dissimilar Friction Stir Welded Al 7075 and Mg AZ31 Alloys Using Cd Interlayer, <em>Metals and Materials International, 2022</em></li>
+                    <li>Effect of Vertical and Horizontal Zinc Interlayer on Material Flow, Microstructure and Mechanical Properties of Dissimilar FSW of Al 7075 and Mg AZ31 alloys, <em>International Journal of Advance Manufacturing Technology, 2023</em></li>
+                    <li>Mechanical Properties and Corrosion Behaviour of Dissimilar Friction Stir Welded Al 7075 and Mg AZ31 Alloys with Cd and Zn Interlayer, <em>Canadian Metallurgical Quarterly, 2024</em></li>
+                    <li>Synthesis and characterisation of Al 7075–Mg AZ31 alloy bimetal produced by friction stir additive manufacturing with Zn interlayer, <em>Canadian Metallurgical Quarterly, 2024</em></li>
+                    <li>Effect of Welding speeds on Microstructure and Mechanical Properties of dissimilar friction stir welding of AA7075 and AA5083 Alloy, <em>Materials Today: Proceedings, 2020</em></li>
+                    <li>Temperature distribution of Friction Stir Welding of Al 7075 alloy by finite element simulation along with experimental validation, <em>Materials Today: Proceedings, 2023</em></li>
+                    <li>Material flow behavior and mechanical characterization of dissimilar FSW of Cu-Mg alloy joints, <em>Materials Today: Proceedings, 2023</em></li>
+                    <li>Effect of assisted heating on microstructure, material flow and intermetallic formation during friction stir welding of copper alloy and AA 6063, <em>Materials Today: Proceedings, 2023</em></li>
+                    <li>Study of Material Flow and Mechanical Properties of Friction Stir Welded AA2024 with AA7075 Dissimilar Alloys using Top-Half-Threaded Pin Tool, <em>Trends in Sciences, 2021</em></li>
+                    <li>Effect of Zn interlayer on joint characteristics of dissimilar friction stir welding of Mg and Cu alloy, <em>Welding in the world, 2025</em></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="section-title">📘 Book Chapters & Conference Proceedings</h2>
+            <ul>
+                <li>Study of Microstructure and Mechanical Properties of Similar and Dissimilar FSW of Al 7075 and Mg AZ31 Alloys Without and With Zn Interlayer, <em>Proc. International Conference on Metallurgical Engineering, 2023</em></li>
+                <li>Mechanical and Corrosion Study of Dissimilar Friction Stir Welding of AZ31Mg Alloy and Cu-8Zn Alloy, <em>Proc. International Conference on Metallurgical Engineering, 2023</em></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 4: GALLERY / IMAGES + ADDITIONAL INFO -->
+    <div id="gallery" class="page">
+        <div class="card">
+            <h2 class="section-title">📸 Research & Lab Gallery</h2>
+            <p style="margin-bottom: 1rem;">Moments from advanced manufacturing, friction stir welding setup, and AI-based defect analysis.</p>
+            <div class="image-gallery">
+                <!-- Visual placeholder images simulating original satya1.jpeg and additional -->
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%2334868f'/%3E%3Ctext x='150' y='110' fill='white' font-size='16' text-anchor='middle'%3EFriction Stir Welding%3C/text%3E%3C/svg%3E" 
+                     alt="FSW Lab" class="gallery-img">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%233f7e6b'/%3E%3Ctext x='150' y='110' fill='white' font-size='16' text-anchor='middle'%3EAI Defect Detection%3C/text%3E%3C/svg%3E" 
+                     alt="AI NDT" class="gallery-img">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%235f7e8c'/%3E%3Ctext x='150' y='110' fill='white' font-size='16' text-anchor='middle'%3EMicrostructure Analysis%3C/text%3E%3C/svg%3E" 
+                     alt="Microstructure" class="gallery-img">
+            </div>
+            <hr>
+            <h3>🔬 Equipment & Methods</h3>
+            <p>Friction stir welding machine, optical microscopy, SEM-EDS, Abaqus simulation, Python-based computer vision systems.</p>
+        </div>
+        <div class="card">
+            <h2 class="section-title">🏆 Honors & Recognitions</h2>
+            <ul>
+                <li>Awarded – Doctoral 2023, NIT Raipur</li>
+                <li>Awarded - IGSTC Industrial Fellowship 2024</li>
+                <li>Awarded - IPDF 2026, IIT Kharagpur</li>
+            </ul>
+            <h3>🌐 Professional Membership</h3>
+            <p>Indian Society for Technical Education (ISTE), Life Membership.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Dr. Satya Kumar Dewangan. All Rights Reserved. | Built with multi‑page interactive design | Researcher</p>
+</footer>
+
+<script>
+    // multi-page interactive switching
+    const pages = {
+        profile: document.getElementById('profile'),
+        experience: document.getElementById('experience'),
+        publications: document.getElementById('publications'),
+        gallery: document.getElementById('gallery')
+    };
+
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    function switchPage(pageId) {
+        // hide all pages
+        Object.values(pages).forEach(page => {
+            if (page) page.classList.remove('active-page');
+        });
+        // show selected page
+        if (pages[pageId]) {
+            pages[pageId].classList.add('active-page');
+        }
+        // update active button style
+        buttons.forEach(btn => {
+            const btnPage = btn.getAttribute('data-page');
+            if (btnPage === pageId) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        // optional: smooth scroll to top on page change
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const pageId = btn.getAttribute('data-page');
+            if (pageId && pages[pageId]) {
+                switchPage(pageId);
+            }
+        });
+    });
+
+    // make sure initial active page matches (profile is default)
+    // fix if any mismatch after load
+    const activeBtn = document.querySelector('.tab-btn.active');
+    if (activeBtn) {
+        const defaultPage = activeBtn.getAttribute('data-page');
+        if (defaultPage && pages[defaultPage]) {
+            switchPage(defaultPage);
+        }
+    } else {
+        switchPage('profile');
+    }
+
+    // Add dynamic hover improvements + interactive image placeholder handling if you want to replace actual images
+    // (Original images referenced Satya3.jpg, satya1.jpeg - but we use safe svg to avoid broken requests.
+    // For real deployment, replace 'src' with actual image URLs)
+    // enhance: provide context menu or demo
+    console.log('Interactive multi-page CV ready — Dr. Satya Dewangan');
+    
+    // optional: extra effect - dynamic year
+    const footerYear = document.querySelector('footer p');
+    if (footerYear) {
+        const currentYear = new Date().getFullYear();
+        if (!footerYear.innerText.includes('2025')) {
+            footerYear.innerText = footerYear.innerText.replace('2025', currentYear);
+        }
+    }
+    
+    // fix for any missing linkedin/github click simulation (if needed, but they are dummy)
+    const linkedinLink = document.querySelector('.contact-grid a[href*="linkedin"]');
+    if (linkedinLink && linkedinLink.getAttribute('href') === '#') {
+        linkedinLink.setAttribute('href', 'https://www.linkedin.com/in/dr-satya-dewangan-93767498');
+        linkedinLink.setAttribute('target', '_blank');
+    }
+    const githubLink = document.querySelector('.contact-grid a[href*="github"]');
+    if (githubLink && githubLink.getAttribute('href') === '#') {
+        githubLink.setAttribute('href', 'https://github.com/Satya17071990');
+        githubLink.setAttribute('target', '_blank');
+    }
+    
+    // also correct profile image if we want to show actual satya3.jpg but to avoid 404 we keep svg, 
+    // but if you have images in same folder, uncomment next lines:
+    // const profileRealImg = document.getElementById('profileImg');
+    // if(profileRealImg) profileRealImg.src = 'Satya3.jpg';
+    // but for demo works without external.
+    
+    // Add additional interactive: tooltip or dynamic citation
+    const allPapers = document.querySelectorAll('#publications ul li');
+    if(allPapers.length) {
+        // just a little interactive effect
+    }
+</script>
+</body>
+</html>
